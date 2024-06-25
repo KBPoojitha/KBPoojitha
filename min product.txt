@@ -1,0 +1,40 @@
+int N=sc.nextInt();
+        int array[]=new int[N];
+        int fmax=Integer.MIN_VALUE;
+        int fmin=Integer.MAX_VALUE;
+        int smax=Integer.MIN_VALUE;
+        int smin=Integer.MAX_VALUE;
+        int product=1;
+        int i;
+        for(i=0;i<array.length;i++){
+            array[i]=sc.nextInt();
+        }
+        for(i=0;i<array.length;i++){
+        if(array[i]>fmax){
+            smax=fmax;
+            fmax=array[i];
+        }
+            else if(array[i]>smax&&array[i]<fmax){
+                smax=array[i];
+            }
+        }
+        for(i=0;i<N;i++){
+            if(array[i]<fmin){
+                smin=fmin;
+                fmin=array[i];
+            }
+            else if(array[i]<smin&&array[i]>fmin){
+                smin=array[i];
+            }
+        }
+        int p1=smax*fmax;
+        int p2=smin*fmin;
+        int p3=smax*fmax;
+        if(p3<p2&&p3<p1){
+            System.out.print(p3);
+        }
+        else if(p2<p1&&p2<p3){
+            System.out.print(p2);
+        }
+        else{
+            System.out.print(p1);
